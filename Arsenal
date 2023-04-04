@@ -13,6 +13,9 @@ local Tracers = Instance.new("TextButton")
 local Aimlock_2 = Instance.new("TextLabel")
 local Tracers_2 = Instance.new("TextLabel")
 local Esp_3 = Instance.new("TextLabel")
+local Silentaim = Instance.new("TextButton")
+local SilentAim = Instance.new("TextLabel")
+local TextButton = Instance.new("TextButton")
 
 --Properties:
 
@@ -22,7 +25,7 @@ Esp.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 Frame.Parent = Esp
 Frame.BackgroundColor3 = Color3.fromRGB(171, 160, 255)
-Frame.Position = UDim2.new(0.647028923, 0, 0.54285717, 0)
+Frame.Position = UDim2.new(0.360738575, 0, 0.513984859, 0)
 Frame.Size = UDim2.new(0, 377, 0, 304)
 
 UICorner.Parent = Frame
@@ -102,15 +105,47 @@ Esp_3.BackgroundTransparency = 1.000
 Esp_3.Position = UDim2.new(0.358090192, 0, 0.101973683, 0)
 Esp_3.Size = UDim2.new(0, 107, 0, 40)
 Esp_3.Font = Enum.Font.Unknown
-Esp_3.Text = "Esp"
+Esp_3.Text = "Chams"
 Esp_3.TextColor3 = Color3.fromRGB(0, 0, 0)
 Esp_3.TextScaled = true
 Esp_3.TextSize = 14.000
 Esp_3.TextWrapped = true
 
+Silentaim.Name = "Silent aim"
+Silentaim.Parent = Frame
+Silentaim.BackgroundColor3 = Color3.fromRGB(207, 110, 255)
+Silentaim.Position = UDim2.new(0.0185676403, 0, 0.5, 0)
+Silentaim.Size = UDim2.new(0, 115, 0, 45)
+Silentaim.Font = Enum.Font.Unknown
+Silentaim.Text = "Off"
+Silentaim.TextColor3 = Color3.fromRGB(184, 51, 82)
+Silentaim.TextSize = 31.000
+
+SilentAim.Name = "Silent Aim"
+SilentAim.Parent = Frame
+SilentAim.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SilentAim.BackgroundTransparency = 1.000
+SilentAim.Position = UDim2.new(0.0291777179, 0, 0.381578952, 0)
+SilentAim.Size = UDim2.new(0, 107, 0, 40)
+SilentAim.Font = Enum.Font.Unknown
+SilentAim.Text = "Silent aim"
+SilentAim.TextColor3 = Color3.fromRGB(0, 0, 0)
+SilentAim.TextScaled = true
+SilentAim.TextSize = 14.000
+SilentAim.TextWrapped = true
+
+TextButton.Parent = Esp
+TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.Position = UDim2.new(0.46308738, 0, 0.901253104, 0)
+TextButton.Size = UDim2.new(0, 62, 0, 56)
+TextButton.Font = Enum.Font.SourceSans
+TextButton.Text = "Show"
+TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.TextSize = 14.000
+
 -- Scripts:
 
-local function SWYM_fake_script() -- Aimlock.LocalScript 
+local function VFVZ_fake_script() -- Aimlock.LocalScript 
 	local script = Instance.new('LocalScript', Aimlock)
 
 	_G.aimbot = false
@@ -172,8 +207,59 @@ local function SWYM_fake_script() -- Aimlock.LocalScript
 		end
 	end)
 end
-coroutine.wrap(SWYM_fake_script)()
-local function OGBYMA_fake_script() -- Frame.Script 
+coroutine.wrap(VFVZ_fake_script)()
+local function XXZAMT_fake_script() -- Esp_2.LocalScript 
+	local script = Instance.new('LocalScript', Esp_2)
+
+	_G.chams = false
+	local Player = game:GetService("Players")
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		if _G.chams == false then
+			_G.chams = true
+			script.Parent.Text = "On"
+			script.Parent.TextColor3 = Color3.fromRGB(133, 255, 67)
+			--chams
+			function CreateGui(name,parent,face)
+				local SurfaceGui = Instance.new("SurfaceGui", parent)
+				SurfaceGui.Parent = parent
+				SurfaceGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+				SurfaceGui.Face = Enum.NormalId[face]
+				SurfaceGui.LightInfluence = 0
+				SurfaceGui.ResetOnSpawn = false
+				SurfaceGui.Name = name
+				SurfaceGui.AlwaysOnTop = true
+				local Frame = Instance.new("Frame",SurfaceGui)
+				Frame.BackgroundColor3 = Color3.fromRGB(171, 160, 255)
+				Frame.Size = UDim2.new(1,0,1,0)
+			end
+			
+			while wait(1) do
+				for i,v in pairs (Players:GetPlayers()) do
+					if v ~= Players.LocalPlayer and v.Character ~= nil and v.Character:FindFirstChild("Head") and _G.chams and v.Character and v.Character.Head:FindFirstChild("cham") == nil then
+						for i,v in pairs (v.Character:GetChildren()) do
+							if v:IsA("MeshPart") or v.Name == "Head" then 
+								CreateGui("cham",v,"Back")
+								CreateGui("cham",v,"Front")
+								CreateGui("cham",v,"Top")
+								CreateGui("cham",v,"Bottom")
+								CreateGui("cham",v,"Right")
+								CreateGui("cham",v,"Left")
+							end
+						end
+						
+					end
+				end
+			end
+		else
+			_G.chams = false 
+			script.Parent.Text = "Off"
+			script.Parent.TextColor3 = Color3.fromRGB(184, 51, 82)
+		end
+	end)
+end
+coroutine.wrap(XXZAMT_fake_script)()
+local function GQAETC_fake_script() -- Frame.Script 
 	local script = Instance.new('Script', Frame)
 
 	local frame = script.Parent
@@ -181,4 +267,4 @@ local function OGBYMA_fake_script() -- Frame.Script
 	frame.Active = true
 	frame.Draggable = true
 end
-coroutine.wrap(OGBYMA_fake_script)()
+coroutine.wrap(GQAETC_fake_script)()
