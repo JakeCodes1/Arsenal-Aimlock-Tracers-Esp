@@ -1,0 +1,184 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local Esp = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local discord = Instance.new("TextLabel")
+local Aimlock = Instance.new("TextButton")
+local Esp_2 = Instance.new("TextButton")
+local Tracers = Instance.new("TextButton")
+local Aimlock_2 = Instance.new("TextLabel")
+local Tracers_2 = Instance.new("TextLabel")
+local Esp_3 = Instance.new("TextLabel")
+
+--Properties:
+
+Esp.Name = "Esp"
+Esp.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+Esp.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = Esp
+Frame.BackgroundColor3 = Color3.fromRGB(171, 160, 255)
+Frame.Position = UDim2.new(0.647028923, 0, 0.54285717, 0)
+Frame.Size = UDim2.new(0, 377, 0, 304)
+
+UICorner.Parent = Frame
+
+discord.Name = "discord"
+discord.Parent = Frame
+discord.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+discord.BackgroundTransparency = 1.000
+discord.Size = UDim2.new(0, 146, 0, 31)
+discord.Font = Enum.Font.Unknown
+discord.Text = "JakeCodes#5443"
+discord.TextColor3 = Color3.fromRGB(0, 0, 0)
+discord.TextScaled = true
+discord.TextSize = 14.000
+discord.TextWrapped = true
+
+Aimlock.Name = "Aimlock"
+Aimlock.Parent = Frame
+Aimlock.BackgroundColor3 = Color3.fromRGB(207, 110, 255)
+Aimlock.Position = UDim2.new(0.0185676403, 0, 0.23355262, 0)
+Aimlock.Size = UDim2.new(0, 115, 0, 45)
+Aimlock.Font = Enum.Font.Unknown
+Aimlock.Text = "Off"
+Aimlock.TextColor3 = Color3.fromRGB(184, 51, 82)
+Aimlock.TextSize = 31.000
+
+Esp_2.Name = "Esp "
+Esp_2.Parent = Frame
+Esp_2.BackgroundColor3 = Color3.fromRGB(207, 110, 255)
+Esp_2.Position = UDim2.new(0.347480088, 0, 0.23355262, 0)
+Esp_2.Size = UDim2.new(0, 115, 0, 45)
+Esp_2.Font = Enum.Font.Unknown
+Esp_2.Text = "Off"
+Esp_2.TextColor3 = Color3.fromRGB(184, 51, 82)
+Esp_2.TextSize = 31.000
+
+Tracers.Name = "Tracers"
+Tracers.Parent = Frame
+Tracers.BackgroundColor3 = Color3.fromRGB(207, 110, 255)
+Tracers.Position = UDim2.new(0.676392615, 0, 0.23355262, 0)
+Tracers.Size = UDim2.new(0, 115, 0, 45)
+Tracers.Font = Enum.Font.Unknown
+Tracers.Text = "Off"
+Tracers.TextColor3 = Color3.fromRGB(184, 51, 82)
+Tracers.TextSize = 31.000
+
+Aimlock_2.Name = "Aimlock"
+Aimlock_2.Parent = Frame
+Aimlock_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Aimlock_2.BackgroundTransparency = 1.000
+Aimlock_2.Position = UDim2.new(0.0291777179, 0, 0.101973683, 0)
+Aimlock_2.Size = UDim2.new(0, 107, 0, 40)
+Aimlock_2.Font = Enum.Font.Unknown
+Aimlock_2.Text = "AimLock"
+Aimlock_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+Aimlock_2.TextScaled = true
+Aimlock_2.TextSize = 14.000
+Aimlock_2.TextWrapped = true
+
+Tracers_2.Name = "Tracers"
+Tracers_2.Parent = Frame
+Tracers_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Tracers_2.BackgroundTransparency = 1.000
+Tracers_2.Position = UDim2.new(0.687002659, 0, 0.101973683, 0)
+Tracers_2.Size = UDim2.new(0, 107, 0, 40)
+Tracers_2.Font = Enum.Font.Unknown
+Tracers_2.Text = "Tracers"
+Tracers_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+Tracers_2.TextScaled = true
+Tracers_2.TextSize = 14.000
+Tracers_2.TextWrapped = true
+
+Esp_3.Name = "Esp"
+Esp_3.Parent = Frame
+Esp_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Esp_3.BackgroundTransparency = 1.000
+Esp_3.Position = UDim2.new(0.358090192, 0, 0.101973683, 0)
+Esp_3.Size = UDim2.new(0, 107, 0, 40)
+Esp_3.Font = Enum.Font.Unknown
+Esp_3.Text = "Esp"
+Esp_3.TextColor3 = Color3.fromRGB(0, 0, 0)
+Esp_3.TextScaled = true
+Esp_3.TextSize = 14.000
+Esp_3.TextWrapped = true
+
+-- Scripts:
+
+local function SWYM_fake_script() -- Aimlock.LocalScript 
+	local script = Instance.new('LocalScript', Aimlock)
+
+	_G.aimbot = false
+	local camera = game.Workspace.CurrentCamera
+	local localplayer = game:GetService("Players").LocalPlayer
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		if _G.aimbot == false then
+			_G.aimbot = true
+			script.Parent.TextColor3 = Color3.fromRGB(133, 255, 67)
+			script.Parent.Text = "On"
+			function closestplayer()
+				local dist = math.huge
+				local target = nil
+				for i,v in pairs (game:GetService("Players"):GetPlayers()) do
+					if v ~= localplayer then
+						if v.Character and v.Character:FindFirstChild("Head") and v.TeamColor ~= localplayer.TeamColor  and _G.aimbot then
+							local magnitude = (v.Character.Head.Position - localplayer.Character.Head.Position).magnitude
+							if magnitude < dist then
+								dist = magnitude
+								target = v
+							end
+							
+						end
+					end
+				end
+				return target
+			end
+			
+		else
+			_G.aimbot = false
+			script.Parent.TextColor3 = Color3.fromRGB(184, 51, 82)
+			script.Parent.Text = "Off"
+		end
+	end)
+	
+	local settings = {
+		keybind = Enum.UserInputType.MouseButton2
+	}
+	
+	local UIS = game:GetService("UserInputService")
+	local aiming = false
+	
+	UIS.InputBegan:Connect(function(inp)
+		if inp.UserInputType == settings.keybind then
+			aiming = true
+		end
+	end)
+	
+	UIS.InputEnded:Connect(function(inp)
+		if inp.UserInputType == settings.keybind then
+			aiming = false
+		end
+	end)
+	
+	game:GetService("RunService").RenderStepped:Connect(function()
+		if aiming then
+			camera.CFrame = CFrame.new(camera.CFrame.Position,closestplayer().Character.Head.Position)
+		end
+	end)
+end
+coroutine.wrap(SWYM_fake_script)()
+local function OGBYMA_fake_script() -- Frame.Script 
+	local script = Instance.new('Script', Frame)
+
+	local frame = script.Parent
+	
+	frame.Active = true
+	frame.Draggable = true
+end
+coroutine.wrap(OGBYMA_fake_script)()
