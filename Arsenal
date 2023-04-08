@@ -145,7 +145,7 @@ TextButton.TextSize = 14.000
 
 -- Scripts:
 
-local function IVCQTBR_fake_script() -- Aimlock.LocalScript 
+local function SDNM_fake_script() -- Aimlock.LocalScript 
 	local script = Instance.new('LocalScript', Aimlock)
 
 	_G.aimbot = false
@@ -155,7 +155,7 @@ local function IVCQTBR_fake_script() -- Aimlock.LocalScript
 	script.Parent.MouseButton1Click:Connect(function()
 		if _G.aimbot == false then
 			_G.aimbot = true
-			script.Parent.TextColor3 = Color3.fromRGB(133, 255, 67)
+			script.Parent.TextColor3 = Color3.fromRGB(184, 51, 82)
 			script.Parent.Text = "On"
 			function closestplayer()
 				local dist = math.huge
@@ -207,61 +207,94 @@ local function IVCQTBR_fake_script() -- Aimlock.LocalScript
 		end
 	end)
 end
-coroutine.wrap(IVCQTBR_fake_script)()
+coroutine.wrap(SDNM_fake_script)()
 -- Esp_2.Script 1 is disabled.
-local function VXXI_fake_script() -- Esp_2.Script 2 
+-- Esp_2.Script 2 is disabled.
+-- Esp_2.Script 3 is disabled.
+-- Esp_2.Script 4 is disabled.
+-- Esp_2.Script 5 is disabled.
+-- Esp_2.Script 6 is disabled.
+local function MTNBRRF_fake_script() -- Esp_2.Script 7 
 	local script = Instance.new('LocalScript', Esp_2)
 
-	_G.chams = false
-	local Players = game:GetService("Players") -- variable to get the players in the game
+	-- Define the highlight object that we want to create and toggle.
+	local highlight = Instance.new("BoxHandleAdornment")
+	highlight.AlwaysOnTop = true
+	highlight.ZIndex = 5
+	highlight.Size = Vector3.new(3, 6, 3) -- smaller size
+	highlight.Transparency = 0.5
+	highlight.Visible = false
 	
-	script.Parent.MouseButton1Click:Connect(function()
-		if _G.chams == false then
-			_G.chams = true
-			script.Parent.Text = "On"
-			script.Parent.TextColor3 = Color3.fromRGB(0, 255, 0)
-			--- Chams
-			function CreateGui(name,parent,face) -- function that creates the Chams
-				local SurfaceGui = Instance.new("SurfaceGui",parent) --- Creates a SurfaceGui in the game
-				SurfaceGui.Parent = parent
-				SurfaceGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-				SurfaceGui.Face = Enum.NormalId[face]
-				SurfaceGui.LightInfluence = 0
-				SurfaceGui.ResetOnSpawn = false
-				SurfaceGui.Name = name
-				SurfaceGui.AlwaysOnTop = true
-				local Frame = Instance.new("Frame",SurfaceGui)
-				Frame.BackgroundColor3 = Color3.fromRGB(85, 170, 255) -- colour for the surfacgui
-				Frame.Size = UDim2.new(1,0,1,0)
-			end
+	-- Create the button that will toggle the highlight object.
+	local button = script.Parent
+	local buttonOnText = "On"
+	local buttonOffText = "Off"
+	local isHighlightOn = false
 	
-			while wait(1) do
-				for i,v in pairs (Players:GetPlayers()) do --- gets all the players in the game and loops through them
-					if v ~= Players.LocalPlayer and v.Character ~= nil and v.Character:FindFirstChild("Head") and _G.chams and v.Character.Head:FindFirstChild("cham") == nil and v.TeamColor ~= Players.LocalPlayer.TeamColor then --- Checks to check if the player is appropiate to make a cham
-						for i,v in pairs (v.Character:GetChildren()) do -- looping through every child in the character of the player
-							if v:IsA("MeshPart") or v.Name == "Head" then -- checking if the child is a body part
-								CreateGui("cham",v,"Back")
-								CreateGui("cham",v,"Front")
-								CreateGui("cham",v,"Top")
-								CreateGui("cham",v,"Bottom")
-								CreateGui("cham",v,"Right")
-								CreateGui("cham",v,"Left")
-							end
-						end
-	
-					end
-				end
-			end
-		else 
-			_G.chams = false
-			script.Parent.Text = "Off"
-			script.Parent.TextColor3 = Color3.fromRGB(255, 0, 0)
+	-- Function to update the button text based on the current state of the highlight object.
+	local function updateButtonText()
+		if isHighlightOn then
+			button.Text = buttonOnText
+		else
+			button.Text = buttonOffText
 		end
-	end)
 	end
+	
+	-- Function to toggle the visibility of the highlight object and update the button text.
+	local function toggleHighlight()
+		isHighlightOn = not isHighlightOn
+		highlight.Visible = isHighlightOn
+		updateButtonText()
+	end
+	
+	-- Connect the toggleHighlight function to the button click event.
+	button.Activated:Connect(toggleHighlight)
+	
+	-- Add the highlight object to the player's character.
+	local player = game.Players.LocalPlayer
+	local character = player.Character or player.CharacterAdded:Wait()
+	local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+	highlight.Adornee = humanoidRootPart
+	highlight.Parent = humanoidRootPart
+	
+	-- Update the highlight color based on whether the player is on a team.
+	if player.TeamColor == BrickColor.new("Bright blue") then
+		highlight.Color3 = Color3.new(1, 0, 0) -- Blue for teammates
+	else
+		highlight.Color3 = Color3.new(0, 0, 1) -- Red for enemies
+	end
+	
+	-- Function to update the highlight color based on the player's team.
+	local function updateHighlightColor()
+		if player.TeamColor == BrickColor.new("Bright blue") then
+			highlight.Color3 = Color3.new(0, 0, 1) -- Blue for teammates
+		else
+			highlight.Color3 = Color3.new(1, 0, 0) -- Red for enemies
+		end
+	end
+	
+	-- Connect the updateHighlightColor function to the player's team change event.
+	player.CharacterAdded:Connect(function(character)
+		character.ChildAdded:Connect(function(child)
+			if child.Name == "Humanoid" then
+				child.Died:Connect(function()
+					wait(5)
+					updateHighlightColor()
+				end)
+			end
+		end)
+		local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+		highlight.Adornee = humanoidRootPart
+		highlight.Parent = humanoidRootPart
+		updateHighlightColor()
+	end)
+	
+	-- Update the button text to reflect the initial state of the highlight object.
+	updateButtonText()
+	
 end
-coroutine.wrap(VXXI_fake_script)()
-local function YSTE_fake_script() -- Frame.Script 
+coroutine.wrap(MTNBRRF_fake_script)()
+local function XDLV_fake_script() -- Frame.Script 
 	local script = Instance.new('Script', Frame)
 
 	local frame = script.Parent
@@ -269,4 +302,4 @@ local function YSTE_fake_script() -- Frame.Script
 	frame.Active = true
 	frame.Draggable = true
 end
-coroutine.wrap(YSTE_fake_script)()
+coroutine.wrap(XDLV_fake_script)()
