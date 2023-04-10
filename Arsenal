@@ -8,11 +8,11 @@ local Frame = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")
 local discord = Instance.new("TextLabel")
 local Aimlock = Instance.new("TextButton")
-local Esp_2 = Instance.new("TextButton")
+local esp = Instance.new("TextButton")
 local Tracers = Instance.new("TextButton")
 local Aimlock_2 = Instance.new("TextLabel")
 local Tracers_2 = Instance.new("TextLabel")
-local Esp_3 = Instance.new("TextLabel")
+local Esp_2 = Instance.new("TextLabel")
 local Silentaim = Instance.new("TextButton")
 local SilentAim = Instance.new("TextLabel")
 local TextButton = Instance.new("TextButton")
@@ -52,15 +52,15 @@ Aimlock.Text = "Off"
 Aimlock.TextColor3 = Color3.fromRGB(184, 51, 82)
 Aimlock.TextSize = 31.000
 
-Esp_2.Name = "Esp "
-Esp_2.Parent = Frame
-Esp_2.BackgroundColor3 = Color3.fromRGB(207, 110, 255)
-Esp_2.Position = UDim2.new(0.347480088, 0, 0.23355262, 0)
-Esp_2.Size = UDim2.new(0, 115, 0, 45)
-Esp_2.Font = Enum.Font.Unknown
-Esp_2.Text = "Off"
-Esp_2.TextColor3 = Color3.fromRGB(184, 51, 82)
-Esp_2.TextSize = 31.000
+esp.Name = "esp"
+esp.Parent = Frame
+esp.BackgroundColor3 = Color3.fromRGB(207, 110, 255)
+esp.Position = UDim2.new(0.347480088, 0, 0.23355262, 0)
+esp.Size = UDim2.new(0, 115, 0, 45)
+esp.Font = Enum.Font.Unknown
+esp.Text = "Off"
+esp.TextColor3 = Color3.fromRGB(184, 51, 82)
+esp.TextSize = 31.000
 
 Tracers.Name = "Tracers"
 Tracers.Parent = Frame
@@ -98,18 +98,18 @@ Tracers_2.TextScaled = true
 Tracers_2.TextSize = 14.000
 Tracers_2.TextWrapped = true
 
-Esp_3.Name = "Esp"
-Esp_3.Parent = Frame
-Esp_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Esp_3.BackgroundTransparency = 1.000
-Esp_3.Position = UDim2.new(0.358090192, 0, 0.101973683, 0)
-Esp_3.Size = UDim2.new(0, 107, 0, 40)
-Esp_3.Font = Enum.Font.Unknown
-Esp_3.Text = "Chams"
-Esp_3.TextColor3 = Color3.fromRGB(0, 0, 0)
-Esp_3.TextScaled = true
-Esp_3.TextSize = 14.000
-Esp_3.TextWrapped = true
+Esp_2.Name = "Esp"
+Esp_2.Parent = Frame
+Esp_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Esp_2.BackgroundTransparency = 1.000
+Esp_2.Position = UDim2.new(0.358090192, 0, 0.101973683, 0)
+Esp_2.Size = UDim2.new(0, 107, 0, 40)
+Esp_2.Font = Enum.Font.Unknown
+Esp_2.Text = "Chams"
+Esp_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+Esp_2.TextScaled = true
+Esp_2.TextSize = 14.000
+Esp_2.TextWrapped = true
 
 Silentaim.Name = "Silent aim"
 Silentaim.Parent = Frame
@@ -145,7 +145,7 @@ TextButton.TextSize = 14.000
 
 -- Scripts:
 
-local function SDNM_fake_script() -- Aimlock.LocalScript 
+local function YKVV_fake_script() -- Aimlock.LocalScript 
 	local script = Instance.new('LocalScript', Aimlock)
 
 	_G.aimbot = false
@@ -207,94 +207,89 @@ local function SDNM_fake_script() -- Aimlock.LocalScript
 		end
 	end)
 end
-coroutine.wrap(SDNM_fake_script)()
--- Esp_2.Script 1 is disabled.
--- Esp_2.Script 2 is disabled.
--- Esp_2.Script 3 is disabled.
--- Esp_2.Script 4 is disabled.
--- Esp_2.Script 5 is disabled.
--- Esp_2.Script 6 is disabled.
-local function MTNBRRF_fake_script() -- Esp_2.Script 7 
-	local script = Instance.new('LocalScript', Esp_2)
+coroutine.wrap(YKVV_fake_script)()
+-- esp.Sdiper 1 is disabled.
+-- esp.asfssf 2 is disabled.
+-- esp.asdewr 3 is disabled.
+local function JQLRQ_fake_script() -- esp.LocalScript 
+	local script = Instance.new('LocalScript', esp)
 
-	-- Define the highlight object that we want to create and toggle.
-	local highlight = Instance.new("BoxHandleAdornment")
-	highlight.AlwaysOnTop = true
-	highlight.ZIndex = 5
-	highlight.Size = Vector3.new(3, 6, 3) -- smaller size
-	highlight.Transparency = 0.5
-	highlight.Visible = false
-	
-	-- Create the button that will toggle the highlight object.
-	local button = script.Parent
-	local buttonOnText = "On"
-	local buttonOffText = "Off"
-	local isHighlightOn = false
-	
-	-- Function to update the button text based on the current state of the highlight object.
-	local function updateButtonText()
-		if isHighlightOn then
-			button.Text = buttonOnText
-		else
-			button.Text = buttonOffText
-		end
-	end
-	
-	-- Function to toggle the visibility of the highlight object and update the button text.
-	local function toggleHighlight()
-		isHighlightOn = not isHighlightOn
-		highlight.Visible = isHighlightOn
-		updateButtonText()
-	end
-	
-	-- Connect the toggleHighlight function to the button click event.
-	button.Activated:Connect(toggleHighlight)
-	
-	-- Add the highlight object to the player's character.
 	local player = game.Players.LocalPlayer
-	local character = player.Character or player.CharacterAdded:Wait()
-	local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
-	highlight.Adornee = humanoidRootPart
-	highlight.Parent = humanoidRootPart
+	local highlight
+	local highlightedPlayers = {}
 	
-	-- Update the highlight color based on whether the player is on a team.
-	if player.TeamColor == BrickColor.new("Bright blue") then
-		highlight.Color3 = Color3.new(1, 0, 0) -- Blue for teammates
-	else
-		highlight.Color3 = Color3.new(0, 0, 1) -- Red for enemies
-	end
-	
-	-- Function to update the highlight color based on the player's team.
-	local function updateHighlightColor()
-		if player.TeamColor == BrickColor.new("Bright blue") then
-			highlight.Color3 = Color3.new(0, 0, 1) -- Blue for teammates
-		else
-			highlight.Color3 = Color3.new(1, 0, 0) -- Red for enemies
+	local function createHighlight()
+		for _, p in pairs(game.Players:GetPlayers()) do
+			if p.Character and not highlightedPlayers[p] then
+				highlight = Instance.new("BoxHandleAdornment")
+				highlight.Adornee = p.Character
+				highlight.AlwaysOnTop = true
+				highlight.Size = p.Character:GetExtentsSize()
+				highlight.Color3 = p.TeamColor.Color
+				highlight.Transparency = 0.35
+				highlight.ZIndex = 1
+				highlight.Parent = p.Character
+				highlightedPlayers[p] = highlight
+			end
 		end
 	end
 	
-	-- Connect the updateHighlightColor function to the player's team change event.
-	player.CharacterAdded:Connect(function(character)
-		character.ChildAdded:Connect(function(child)
-			if child.Name == "Humanoid" then
-				child.Died:Connect(function()
-					wait(5)
-					updateHighlightColor()
-				end)
+	local function toggleHighlight()
+		if highlight then
+			highlight:Destroy()
+			highlight = nil
+			for _, highlightAdornment in pairs(highlightedPlayers) do
+				highlightAdornment:Destroy()
 			end
-		end)
-		local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
-		highlight.Adornee = humanoidRootPart
-		highlight.Parent = humanoidRootPart
-		updateHighlightColor()
+			highlightedPlayers = {}
+		else
+			createHighlight()
+		end
+	end
+	
+	local button = script.Parent
+	
+	button.Activated:Connect(function()
+		toggleHighlight()
+		if highlight then
+			button.Text = "On"
+		else
+			button.Text = "Off"
+		end
 	end)
 	
-	-- Update the button text to reflect the initial state of the highlight object.
-	updateButtonText()
+end
+coroutine.wrap(JQLRQ_fake_script)()
+-- Tracers.Script 1 is disabled.
+local function ADMP_fake_script() -- Tracers.Script 2 
+	local script = Instance.new('LocalScript', Tracers)
+
+	-- Variables
+	local TracersEnabled = false
+	local Button = Instance.new("TextButton")
+	Button.Parent = game:GetService("CoreGui")
+	Button.Text = "Tracers: OFF"
+	
+	-- Function to toggle tracers on and off
+	local function ToggleTracers()
+		TracersEnabled = not TracersEnabled
+		if TracersEnabled then
+			Button.Text = "Tracers: ON"
+			-- code to turn on tracers
+			print("Tracers enabled")
+		else
+			Button.Text = "Tracers: OFF"
+			-- code to turn off tracers
+			print("Tracers disabled")
+		end
+	end
+	
+	-- Button Event
+	Button.MouseButton1Click:Connect(ToggleTracers)
 	
 end
-coroutine.wrap(MTNBRRF_fake_script)()
-local function XDLV_fake_script() -- Frame.Script 
+coroutine.wrap(ADMP_fake_script)()
+local function LOIVVVH_fake_script() -- Frame.Script 
 	local script = Instance.new('Script', Frame)
 
 	local frame = script.Parent
@@ -302,4 +297,4 @@ local function XDLV_fake_script() -- Frame.Script
 	frame.Active = true
 	frame.Draggable = true
 end
-coroutine.wrap(XDLV_fake_script)()
+coroutine.wrap(LOIVVVH_fake_script)()
