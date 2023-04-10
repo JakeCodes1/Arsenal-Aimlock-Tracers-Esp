@@ -3,6 +3,11 @@
 
 -- Instances:
 
+--working things
+--chams with red and blue esp depending on teams
+--aimlock with teamcheck so dont worry about it locking on to your teammates :)
+--aimlock locks on to closest player
+
 local Esp = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")
