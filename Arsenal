@@ -2,24 +2,30 @@
 -- Version: 3.2
 
 -- Instances:
-
 --working things
---chams with red and blue esp depending on teams
---aimlock with teamcheck so dont worry about it locking on to your teammates :)
---aimlock locks on to closest player
+--chams
+--aimlock that locks to nearest player. and has team check:)
+--working fov changer.
 
 local Esp = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")
 local discord = Instance.new("TextLabel")
 local Aimlock = Instance.new("TextButton")
+local UICorner_2 = Instance.new("UICorner")
 local esp = Instance.new("TextButton")
+local UICorner_3 = Instance.new("UICorner")
 local Tracers = Instance.new("TextButton")
+local UICorner_4 = Instance.new("UICorner")
 local Aimlock_2 = Instance.new("TextLabel")
 local Tracers_2 = Instance.new("TextLabel")
 local Esp_2 = Instance.new("TextLabel")
-local Silentaim = Instance.new("TextButton")
-local SilentAim = Instance.new("TextLabel")
+local Fov = Instance.new("TextButton")
+local UICorner_5 = Instance.new("UICorner")
+local Fov_2 = Instance.new("TextLabel")
+local Walk = Instance.new("TextButton")
+local UICorner_6 = Instance.new("UICorner")
+local Walk_2 = Instance.new("TextLabel")
 local TextButton = Instance.new("TextButton")
 
 --Properties:
@@ -57,6 +63,8 @@ Aimlock.Text = "Off"
 Aimlock.TextColor3 = Color3.fromRGB(184, 51, 82)
 Aimlock.TextSize = 31.000
 
+UICorner_2.Parent = Aimlock
+
 esp.Name = "esp"
 esp.Parent = Frame
 esp.BackgroundColor3 = Color3.fromRGB(207, 110, 255)
@@ -67,15 +75,19 @@ esp.Text = "Off"
 esp.TextColor3 = Color3.fromRGB(184, 51, 82)
 esp.TextSize = 31.000
 
+UICorner_3.Parent = esp
+
 Tracers.Name = "Tracers"
 Tracers.Parent = Frame
 Tracers.BackgroundColor3 = Color3.fromRGB(207, 110, 255)
 Tracers.Position = UDim2.new(0.676392615, 0, 0.23355262, 0)
 Tracers.Size = UDim2.new(0, 115, 0, 45)
 Tracers.Font = Enum.Font.Unknown
-Tracers.Text = "Off"
+Tracers.Text = "In Making"
 Tracers.TextColor3 = Color3.fromRGB(184, 51, 82)
 Tracers.TextSize = 31.000
+
+UICorner_4.Parent = Tracers
 
 Aimlock_2.Name = "Aimlock"
 Aimlock_2.Parent = Frame
@@ -116,28 +128,55 @@ Esp_2.TextScaled = true
 Esp_2.TextSize = 14.000
 Esp_2.TextWrapped = true
 
-Silentaim.Name = "Silent aim"
-Silentaim.Parent = Frame
-Silentaim.BackgroundColor3 = Color3.fromRGB(207, 110, 255)
-Silentaim.Position = UDim2.new(0.0185676403, 0, 0.5, 0)
-Silentaim.Size = UDim2.new(0, 115, 0, 45)
-Silentaim.Font = Enum.Font.Unknown
-Silentaim.Text = "Off"
-Silentaim.TextColor3 = Color3.fromRGB(184, 51, 82)
-Silentaim.TextSize = 31.000
+Fov.Name = "Fov"
+Fov.Parent = Frame
+Fov.BackgroundColor3 = Color3.fromRGB(207, 110, 255)
+Fov.Position = UDim2.new(0.0185676403, 0, 0.5, 0)
+Fov.Size = UDim2.new(0, 115, 0, 45)
+Fov.Font = Enum.Font.Unknown
+Fov.Text = "FOV:"
+Fov.TextColor3 = Color3.fromRGB(184, 51, 82)
+Fov.TextSize = 31.000
 
-SilentAim.Name = "Silent Aim"
-SilentAim.Parent = Frame
-SilentAim.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-SilentAim.BackgroundTransparency = 1.000
-SilentAim.Position = UDim2.new(0.0291777179, 0, 0.381578952, 0)
-SilentAim.Size = UDim2.new(0, 107, 0, 40)
-SilentAim.Font = Enum.Font.Unknown
-SilentAim.Text = "Silent aim"
-SilentAim.TextColor3 = Color3.fromRGB(0, 0, 0)
-SilentAim.TextScaled = true
-SilentAim.TextSize = 14.000
-SilentAim.TextWrapped = true
+UICorner_5.Parent = Fov
+
+Fov_2.Name = "Fov"
+Fov_2.Parent = Frame
+Fov_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Fov_2.BackgroundTransparency = 1.000
+Fov_2.Position = UDim2.new(0.0291777179, 0, 0.381578952, 0)
+Fov_2.Size = UDim2.new(0, 107, 0, 40)
+Fov_2.Font = Enum.Font.Unknown
+Fov_2.Text = "Fov"
+Fov_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+Fov_2.TextScaled = true
+Fov_2.TextSize = 14.000
+Fov_2.TextWrapped = true
+
+Walk.Name = "Walk"
+Walk.Parent = Frame
+Walk.BackgroundColor3 = Color3.fromRGB(207, 110, 255)
+Walk.Position = UDim2.new(0.347480088, 0, 0.5, 0)
+Walk.Size = UDim2.new(0, 115, 0, 45)
+Walk.Font = Enum.Font.Unknown
+Walk.Text = "In Making"
+Walk.TextColor3 = Color3.fromRGB(184, 51, 82)
+Walk.TextSize = 31.000
+
+UICorner_6.Parent = Walk
+
+Walk_2.Name = "Walk"
+Walk_2.Parent = Frame
+Walk_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Walk_2.BackgroundTransparency = 1.000
+Walk_2.Position = UDim2.new(0.358090192, 0, 0.381578952, 0)
+Walk_2.Size = UDim2.new(0, 107, 0, 40)
+Walk_2.Font = Enum.Font.Unknown
+Walk_2.Text = "Walk"
+Walk_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+Walk_2.TextScaled = true
+Walk_2.TextSize = 14.000
+Walk_2.TextWrapped = true
 
 TextButton.Parent = Esp
 TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -150,7 +189,7 @@ TextButton.TextSize = 14.000
 
 -- Scripts:
 
-local function YKVV_fake_script() -- Aimlock.LocalScript 
+local function UWWH_fake_script() -- Aimlock.LocalScript 
 	local script = Instance.new('LocalScript', Aimlock)
 
 	_G.aimbot = false
@@ -212,11 +251,8 @@ local function YKVV_fake_script() -- Aimlock.LocalScript
 		end
 	end)
 end
-coroutine.wrap(YKVV_fake_script)()
--- esp.Sdiper 1 is disabled.
--- esp.asfssf 2 is disabled.
--- esp.asdewr 3 is disabled.
-local function JQLRQ_fake_script() -- esp.LocalScript 
+coroutine.wrap(UWWH_fake_script)()
+local function LTDVDR_fake_script() -- esp.LocalScript 
 	local script = Instance.new('LocalScript', esp)
 
 	local player = game.Players.LocalPlayer
@@ -264,37 +300,68 @@ local function JQLRQ_fake_script() -- esp.LocalScript
 	end)
 	
 end
-coroutine.wrap(JQLRQ_fake_script)()
+coroutine.wrap(LTDVDR_fake_script)()
 -- Tracers.Script 1 is disabled.
-local function ADMP_fake_script() -- Tracers.Script 2 
+local function PGQTDE_fake_script() -- Tracers.Script 2 
 	local script = Instance.new('LocalScript', Tracers)
 
-	-- Variables
-	local TracersEnabled = false
-	local Button = Instance.new("TextButton")
-	Button.Parent = game:GetService("CoreGui")
-	Button.Text = "Tracers: OFF"
+	local Players = game:GetService("Players")
+	local LocalPlayer = Players.LocalPlayer
+	local Mouse = LocalPlayer:GetMouse()
 	
-	-- Function to toggle tracers on and off
-	local function ToggleTracers()
-		TracersEnabled = not TracersEnabled
-		if TracersEnabled then
-			Button.Text = "Tracers: ON"
-			-- code to turn on tracers
-			print("Tracers enabled")
-		else
-			Button.Text = "Tracers: OFF"
-			-- code to turn off tracers
-			print("Tracers disabled")
+	local Tracers = {}
+	
+	local function CreateTracer(Player)
+		if not Player.Character then return end
+		local Character = Player.Character
+		local HumanoidRootPart = Character:WaitForChild("HumanoidRootPart")
+		local TracerBeam = Instance.new("Beam")
+		TracerBeam.Color = ColorSequence.new(Color3.new(1, 0, 0))
+		TracerBeam.FaceCamera = true
+		TracerBeam.LightEmission = 1
+		TracerBeam.LightInfluence = 0
+		TracerBeam.Width0 = 0.1
+		TracerBeam.Width1 = 0.1
+		TracerBeam.Attachment0 = Instance.new("Attachment", HumanoidRootPart)
+		TracerBeam.Attachment1 = Instance.new("Attachment", workspace.CurrentCamera)
+		TracerBeam.Parent = workspace.CurrentCamera
+		Tracers[Player] = TracerBeam
+	end
+	
+	local function DestroyTracer(Player)
+		local Tracer = Tracers[Player]
+		if Tracer then
+			Tracer:Destroy()
+			Tracers[Player] = nil
 		end
 	end
 	
-	-- Button Event
-	Button.MouseButton1Click:Connect(ToggleTracers)
+	local function ToggleTracers()
+		for _, Player in ipairs(Players:GetPlayers()) do
+			if Player ~= LocalPlayer then
+				if not Tracers[Player] then
+					CreateTracer(Player)
+				else
+					DestroyTracer(Player)
+				end
+			end
+		end
+	end
+	
+	local Button = script.Parent
+	
+	Button.Activated:Connect(function()
+		ToggleTracers()
+		if next(Tracers) ~= nil then
+			Button.Text = "Tracers On"
+		else
+			Button.Text = "Tracers Off"
+		end
+	end)
 	
 end
-coroutine.wrap(ADMP_fake_script)()
-local function LOIVVVH_fake_script() -- Frame.Script 
+coroutine.wrap(PGQTDE_fake_script)()
+local function ILESHH_fake_script() -- Frame.Script 
 	local script = Instance.new('Script', Frame)
 
 	local frame = script.Parent
@@ -302,4 +369,25 @@ local function LOIVVVH_fake_script() -- Frame.Script
 	frame.Active = true
 	frame.Draggable = true
 end
-coroutine.wrap(LOIVVVH_fake_script)()
+coroutine.wrap(ILESHH_fake_script)()
+local function XZWPFWV_fake_script() -- Fov.LocalScript 
+	local script = Instance.new('LocalScript', Fov)
+
+	local Button = script.Parent -- Change "Button" to the name of your button
+	local Camera = workspace.CurrentCamera
+	local FovValue = 70 -- Initial FOV value
+	local FovText = "FOV: " .. FovValue -- Initial FOV text
+	
+	Button.MouseButton1Click:Connect(function()
+		FovValue = FovValue + 5 -- Increase FOV by 10 each time button is clicked
+		if FovValue > 120 then
+			FovValue = 70 -- Reset FOV value to 70 if it exceeds 120
+		end
+		Camera.FieldOfView = FovValue -- Set camera FOV to current FOV value
+		FovText = "FOV: " .. FovValue -- Update FOV text with current FOV value
+		Button.Text = FovText -- Set button text to current FOV text
+	end)
+	
+	Button.Text = FovText -- Set initial button text to initial FOV text
+end
+coroutine.wrap(XZWPFWV_fake_script)()
