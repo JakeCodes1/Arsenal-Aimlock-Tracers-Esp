@@ -6,6 +6,8 @@
 --chams
 --aimlock that locks to nearest player. and has team check:)
 --working fov changer.
+-- text stuff is F'ed.aaaa
+-- tabs coming soon
 
 local Esp = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
