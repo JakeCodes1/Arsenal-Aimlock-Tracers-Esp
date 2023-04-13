@@ -2,12 +2,6 @@
 -- Version: 3.2
 
 -- Instances:
---working things
---chams
---aimlock that locks to nearest player. and has team check:)
---working fov changer.
--- text stuff is F'ed.aaaa
--- tabs coming soon
 
 local Esp = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
@@ -48,7 +42,7 @@ discord.Parent = Frame
 discord.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 discord.BackgroundTransparency = 1.000
 discord.Size = UDim2.new(0, 146, 0, 31)
-discord.Font = Enum.Font.Unknown
+discord.Font = Enum.Font.FredokaOne
 discord.Text = "JakeCodes#5443"
 discord.TextColor3 = Color3.fromRGB(0, 0, 0)
 discord.TextScaled = true
@@ -60,10 +54,10 @@ Aimlock.Parent = Frame
 Aimlock.BackgroundColor3 = Color3.fromRGB(207, 110, 255)
 Aimlock.Position = UDim2.new(0.0185676403, 0, 0.23355262, 0)
 Aimlock.Size = UDim2.new(0, 115, 0, 45)
-Aimlock.Font = Enum.Font.Unknown
+Aimlock.Font = Enum.Font.FredokaOne
 Aimlock.Text = "Off"
 Aimlock.TextColor3 = Color3.fromRGB(184, 51, 82)
-Aimlock.TextSize = 31.000
+Aimlock.TextSize = 25.000
 
 UICorner_2.Parent = Aimlock
 
@@ -72,10 +66,10 @@ esp.Parent = Frame
 esp.BackgroundColor3 = Color3.fromRGB(207, 110, 255)
 esp.Position = UDim2.new(0.347480088, 0, 0.23355262, 0)
 esp.Size = UDim2.new(0, 115, 0, 45)
-esp.Font = Enum.Font.Unknown
+esp.Font = Enum.Font.FredokaOne
 esp.Text = "Off"
 esp.TextColor3 = Color3.fromRGB(184, 51, 82)
-esp.TextSize = 31.000
+esp.TextSize = 25.000
 
 UICorner_3.Parent = esp
 
@@ -84,10 +78,10 @@ Tracers.Parent = Frame
 Tracers.BackgroundColor3 = Color3.fromRGB(207, 110, 255)
 Tracers.Position = UDim2.new(0.676392615, 0, 0.23355262, 0)
 Tracers.Size = UDim2.new(0, 115, 0, 45)
-Tracers.Font = Enum.Font.Unknown
+Tracers.Font = Enum.Font.FredokaOne
 Tracers.Text = "In Making"
 Tracers.TextColor3 = Color3.fromRGB(184, 51, 82)
-Tracers.TextSize = 31.000
+Tracers.TextSize = 25.000
 
 UICorner_4.Parent = Tracers
 
@@ -97,7 +91,7 @@ Aimlock_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Aimlock_2.BackgroundTransparency = 1.000
 Aimlock_2.Position = UDim2.new(0.0291777179, 0, 0.101973683, 0)
 Aimlock_2.Size = UDim2.new(0, 107, 0, 40)
-Aimlock_2.Font = Enum.Font.Unknown
+Aimlock_2.Font = Enum.Font.FredokaOne
 Aimlock_2.Text = "AimLock"
 Aimlock_2.TextColor3 = Color3.fromRGB(0, 0, 0)
 Aimlock_2.TextScaled = true
@@ -110,7 +104,7 @@ Tracers_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Tracers_2.BackgroundTransparency = 1.000
 Tracers_2.Position = UDim2.new(0.687002659, 0, 0.101973683, 0)
 Tracers_2.Size = UDim2.new(0, 107, 0, 40)
-Tracers_2.Font = Enum.Font.Unknown
+Tracers_2.Font = Enum.Font.FredokaOne
 Tracers_2.Text = "Tracers"
 Tracers_2.TextColor3 = Color3.fromRGB(0, 0, 0)
 Tracers_2.TextScaled = true
@@ -123,7 +117,7 @@ Esp_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Esp_2.BackgroundTransparency = 1.000
 Esp_2.Position = UDim2.new(0.358090192, 0, 0.101973683, 0)
 Esp_2.Size = UDim2.new(0, 107, 0, 40)
-Esp_2.Font = Enum.Font.Unknown
+Esp_2.Font = Enum.Font.FredokaOne
 Esp_2.Text = "Chams"
 Esp_2.TextColor3 = Color3.fromRGB(0, 0, 0)
 Esp_2.TextScaled = true
@@ -135,10 +129,10 @@ Fov.Parent = Frame
 Fov.BackgroundColor3 = Color3.fromRGB(207, 110, 255)
 Fov.Position = UDim2.new(0.0185676403, 0, 0.5, 0)
 Fov.Size = UDim2.new(0, 115, 0, 45)
-Fov.Font = Enum.Font.Unknown
+Fov.Font = Enum.Font.FredokaOne
 Fov.Text = "FOV:"
 Fov.TextColor3 = Color3.fromRGB(184, 51, 82)
-Fov.TextSize = 31.000
+Fov.TextSize = 20.000
 
 UICorner_5.Parent = Fov
 
@@ -148,7 +142,7 @@ Fov_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Fov_2.BackgroundTransparency = 1.000
 Fov_2.Position = UDim2.new(0.0291777179, 0, 0.381578952, 0)
 Fov_2.Size = UDim2.new(0, 107, 0, 40)
-Fov_2.Font = Enum.Font.Unknown
+Fov_2.Font = Enum.Font.FredokaOne
 Fov_2.Text = "Fov"
 Fov_2.TextColor3 = Color3.fromRGB(0, 0, 0)
 Fov_2.TextScaled = true
@@ -160,10 +154,10 @@ Walk.Parent = Frame
 Walk.BackgroundColor3 = Color3.fromRGB(207, 110, 255)
 Walk.Position = UDim2.new(0.347480088, 0, 0.5, 0)
 Walk.Size = UDim2.new(0, 115, 0, 45)
-Walk.Font = Enum.Font.Unknown
+Walk.Font = Enum.Font.FredokaOne
 Walk.Text = "In Making"
 Walk.TextColor3 = Color3.fromRGB(184, 51, 82)
-Walk.TextSize = 31.000
+Walk.TextSize = 25.000
 
 UICorner_6.Parent = Walk
 
@@ -173,7 +167,7 @@ Walk_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Walk_2.BackgroundTransparency = 1.000
 Walk_2.Position = UDim2.new(0.358090192, 0, 0.381578952, 0)
 Walk_2.Size = UDim2.new(0, 107, 0, 40)
-Walk_2.Font = Enum.Font.Unknown
+Walk_2.Font = Enum.Font.FredokaOne
 Walk_2.Text = "Walk"
 Walk_2.TextColor3 = Color3.fromRGB(0, 0, 0)
 Walk_2.TextScaled = true
@@ -184,10 +178,10 @@ TextButton.Parent = Esp
 TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextButton.Position = UDim2.new(0.46308738, 0, 0.901253104, 0)
 TextButton.Size = UDim2.new(0, 62, 0, 56)
-TextButton.Font = Enum.Font.SourceSans
+TextButton.Font = Enum.Font.FredokaOne
 TextButton.Text = "Show"
 TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
-TextButton.TextSize = 14.000
+TextButton.TextSize = 25.000
 
 -- Scripts:
 
